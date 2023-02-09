@@ -1,4 +1,4 @@
-﻿using LoginRegistration.Models;
+using LoginRegistration.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
@@ -22,7 +22,7 @@ namespace LoginRegistration.Controllers
         public string Registration(Registration registration)
         {
             SqlConnection con = new SqlConnection(_configuration.GetConnectionString("ToysCon"));
-            SqlCommand cmd = new SqlCommand("INSERT INTO Registration(UserName,Password,Email,IsActive) VALUES('" +registration.UserName+ "','" +registration.Password+ "','" +registration.Email+ "','" +registration.IsActive+ "')", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Registration(UserName,Password,Email,IsActive) VALUES('" + registration.UserName + "','" + registration.Password + "','" + registration.Email + "'," + 1 + ")", con);
             con.Open();
             int i = cmd.ExecuteNonQuery();
             con.Close();
